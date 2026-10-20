@@ -71,3 +71,7 @@ print(phone_patterns.value_counts().to_string())
 
 print("emails with capitals:", (users["email"] != users["email"].str.lower()).sum())
 print("same email used twice:", users["email"].str.lower().duplicated().sum())
+
+# phones are always 10 digits, only the format differs
+# some addresses are missing
+# the same email shows up more than once, so some users are duplicated
