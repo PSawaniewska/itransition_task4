@@ -60,3 +60,14 @@ print("format 99.99.9999, max of each part:\n", dots.max())
 
 # 99/99/99 is month/day/year, 99.99.9999 is day.month.year
 # so I can't use one dayfirst setting for the whole column
+
+# --- users ---
+
+print(users.isna().sum())
+print("duplicate user ids:", users["id"].duplicated().sum())
+
+phone_patterns = users["phone"].str.replace(r"\d", "9", regex=True)
+print(phone_patterns.value_counts().to_string())
+
+print("emails with capitals:", (users["email"] != users["email"].str.lower()).sum())
+print("same email used twice:", users["email"].str.lower().duplicated().sum())
